@@ -11,6 +11,7 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml;
 
 namespace DarktideModManager
 {
@@ -65,9 +66,18 @@ namespace DarktideModManager
 
         private void UpdateManager()
         {
-            LabelVersion.Text = Settings.Default.Version;
+            XmlDocument xmlDoc = new XmlDocument();
+            var currVersion = Settings.Default.Version;
 
-            string xml = new WebClient().DownloadString(@"https://raw.githubusercontent.com/Futashy/DarktideModManager/refs/heads/master/README.md");
+            LabelVersion.Text = currVersion;
+
+            string xml = new WebClient().DownloadString(@"https://raw.githubusercontent.com/Futashy/DarktideModManager/refs/heads/master/Version.xml");
+            xmlDoc.LoadXml(xml);
+
+            if (xmlDoc.InnerText == currVersion)
+            {
+                // is up to date
+            }
         }
 
         private void ButtonOptions_Click(object sender, EventArgs e)
