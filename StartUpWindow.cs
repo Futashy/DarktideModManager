@@ -7,6 +7,7 @@ using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -29,6 +30,8 @@ namespace DarktideModManager
 
         private void StartUpWindow_Load(object sender, EventArgs e)
         {
+            UpdateManager();
+
             gamePath = Settings.Default.GamePath;
 
             if (gamePath == "" | !gamePath.Contains("Warhammer 40,000 DARKTIDE"))
@@ -58,6 +61,13 @@ namespace DarktideModManager
                     LabelModsFound.Text = $"Found {count} disabled mods";
                 }
             }
+        }
+
+        private void UpdateManager()
+        {
+            LabelVersion.Text = Settings.Default.Version;
+
+            string xml = new WebClient().DownloadString(@"https://raw.githubusercontent.com/Futashy/DarktideModManager/refs/heads/master/README.md");
         }
 
         private void ButtonOptions_Click(object sender, EventArgs e)

@@ -36,7 +36,8 @@
             this.ButtonStartGame = new System.Windows.Forms.Button();
             this.LabelFolderError = new System.Windows.Forms.Label();
             this.LabelWindow = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.LabelVersion = new System.Windows.Forms.Label();
+            this.LinkLableUpdate = new System.Windows.Forms.LinkLabel();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -57,7 +58,8 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
-            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.LinkLableUpdate);
+            this.panel1.Controls.Add(this.LabelVersion);
             this.panel1.Controls.Add(this.LabelModsFound);
             this.panel1.Controls.Add(this.LabelNotPatched);
             this.panel1.Controls.Add(this.ButtonOptions);
@@ -100,7 +102,7 @@
             this.ButtonOptions.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ButtonOptions.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ButtonOptions.ForeColor = System.Drawing.Color.Black;
-            this.ButtonOptions.Location = new System.Drawing.Point(97, 133);
+            this.ButtonOptions.Location = new System.Drawing.Point(193, 67);
             this.ButtonOptions.Name = "ButtonOptions";
             this.ButtonOptions.Size = new System.Drawing.Size(90, 30);
             this.ButtonOptions.TabIndex = 1;
@@ -114,7 +116,7 @@
             this.ButtonStartGame.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ButtonStartGame.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ButtonStartGame.ForeColor = System.Drawing.Color.Black;
-            this.ButtonStartGame.Location = new System.Drawing.Point(97, 59);
+            this.ButtonStartGame.Location = new System.Drawing.Point(193, 103);
             this.ButtonStartGame.Name = "ButtonStartGame";
             this.ButtonStartGame.Size = new System.Drawing.Size(90, 60);
             this.ButtonStartGame.TabIndex = 0;
@@ -148,14 +150,28 @@
             this.LabelWindow.MouseDown += new System.Windows.Forms.MouseEventHandler(this.StartUpWindow_MouseDown);
             this.LabelWindow.MouseUp += new System.Windows.Forms.MouseEventHandler(this.StartUpWindow_MouseUp);
             // 
-            // label1
+            // LabelVersion
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(7, 150);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(41, 13);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "V 3.0.0";
+            this.LabelVersion.AutoSize = true;
+            this.LabelVersion.Location = new System.Drawing.Point(6, 151);
+            this.LabelVersion.Name = "LabelVersion";
+            this.LabelVersion.Size = new System.Drawing.Size(27, 13);
+            this.LabelVersion.TabIndex = 3;
+            this.LabelVersion.Text = "N/A";
+            // 
+            // LinkLableUpdate
+            // 
+            this.LinkLableUpdate.ActiveLinkColor = System.Drawing.Color.Silver;
+            this.LinkLableUpdate.AutoSize = true;
+            this.LinkLableUpdate.BackColor = System.Drawing.Color.Transparent;
+            this.LinkLableUpdate.LinkColor = System.Drawing.Color.White;
+            this.LinkLableUpdate.Location = new System.Drawing.Point(40, 151);
+            this.LinkLableUpdate.Name = "LinkLableUpdate";
+            this.LinkLableUpdate.Size = new System.Drawing.Size(97, 13);
+            this.LinkLableUpdate.TabIndex = 4;
+            this.LinkLableUpdate.TabStop = true;
+            this.LinkLableUpdate.Text = "Update is available";
+            this.LinkLableUpdate.VisitedLinkColor = System.Drawing.Color.White;
             // 
             // StartUpWindow
             // 
@@ -191,6 +207,7 @@
         private System.Windows.Forms.Label LabelNotPatched;
         private System.Windows.Forms.Label LabelFolderError;
         private System.Windows.Forms.Label LabelModsFound;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label LabelVersion;
+        private System.Windows.Forms.LinkLabel LinkLableUpdate;
     }
 }
