@@ -172,6 +172,7 @@
             this.LinkLableUpdate.TabStop = true;
             this.LinkLableUpdate.Text = "Update is available";
             this.LinkLableUpdate.VisitedLinkColor = System.Drawing.Color.White;
+            this.LinkLableUpdate.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkLableUpdate_LinkClicked);
             // 
             // StartUpWindow
             // 

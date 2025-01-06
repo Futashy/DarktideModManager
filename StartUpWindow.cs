@@ -67,16 +67,23 @@ namespace DarktideModManager
         private void UpdateManager()
         {
             XmlDocument xmlDoc = new XmlDocument();
+            string xml = new WebClient().DownloadString(@"https://raw.githubusercontent.com/Futashy/DarktideModManager/refs/heads/master/Version.xml");
+            xmlDoc.LoadXml(xml);
             var currVersion = Settings.Default.Version;
+            var newVersion = xmlDoc.InnerText;
 
             LabelVersion.Text = currVersion;
 
-            string xml = new WebClient().DownloadString(@"https://raw.githubusercontent.com/Futashy/DarktideModManager/refs/heads/master/Version.xml");
-            xmlDoc.LoadXml(xml);
+            int currVersionInt = Int32.Parse(currVersion.Replace(".", ""));
+            int newVersionInt = Int32.Parse(newVersion.Replace(".", ""));
 
-            if (xmlDoc.InnerText == currVersion)
+            if (currVersionInt == newVersionInt)
             {
-                // is up to date
+                LinkLableUpdate.Visible = false;
+            }
+            else if (currVersionInt < newVersionInt)
+            {
+                LinkLableUpdate.Visible = true;
             }
         }
 
@@ -216,6 +223,11 @@ namespace DarktideModManager
             bool result = File.ReadAllText($"{gamePath}\\bundle\\bundle_database.data").Contains("patch_999");
 
             return result;
+        }
+
+        private void LinkLableUpdate_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Process.Start(@"https://github.com/Futashy/DarktideModManager/releases");
         }
     }
 }
