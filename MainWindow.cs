@@ -46,13 +46,20 @@ namespace DarktideModManager
 
         private void PatchButton_Click(object sender, EventArgs e)
         {
-            if (_gamePath.Contains("Warhammer 40,000 DARKTIDE") && !IsPatched())
+            if (_gamePath.Contains("Warhammer 40,000 DARKTIDE"))
             {
-                Process.Start($"{_gamePath}\\tools\\dtkit-patch");
+                if (!IsPatched())
+                {
+                    Process.Start($"{_gamePath}\\tools\\dtkit-patch");
+                }
+                else
+                {
+                    MessageBox.Show("Game is already patched!", "Attention!");
+                }
             }
             else
             {
-                MessageBox.Show("Game is already patched!", "Attention");
+                MessageBox.Show("Game folder not selected!", "Error!");
             }
         }
 
@@ -72,9 +79,15 @@ namespace DarktideModManager
 
             if (result == DialogResult.OK)
             {
+                _gamePath = folderBrowserDialog1.SelectedPath;
                 SelectedFolderBox.Text = folderBrowserDialog1.SelectedPath;
                 Settings.Default.GamePath = folderBrowserDialog1.SelectedPath;
                 Settings.Default.Save();
+
+                if (_gamePath.Contains("Warhammer 40,000 DARKTIDE"))
+                {
+                    CreateModList();
+                }
             }
             else if (result == DialogResult.Cancel)
             {

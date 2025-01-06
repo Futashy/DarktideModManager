@@ -413,9 +413,9 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.LabelWindow);
             this.Controls.Add(this.ButtonExit);
-            this.Controls.Add(this.PanelAbout);
             this.Controls.Add(this.PanelSettings);
             this.Controls.Add(this.PanelMain);
+            this.Controls.Add(this.PanelAbout);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "MainWindow";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

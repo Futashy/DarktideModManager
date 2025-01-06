@@ -41,7 +41,7 @@ namespace DarktideModManager
             }
             else
             {
-                if (!File.ReadAllText($"{gamePath}\\bundle\\bundle_database.data").Contains("patch_999"))
+                if (!IsPatched())
                 {
                     LabelNotPatched.Visible = true;
                 }
@@ -201,29 +201,42 @@ namespace DarktideModManager
 
         private void ButtonStartGame_Click(object sender, EventArgs e)
         {
-            if (IsPatched())
+            if (gamePath.Contains("Warhammer 40,000 DARKTIDE"))
             {
-                //Process.Start("steam://rungameid/1361210"); // in case if needed to launch through steam
-                Process.Start($"{gamePath}\\launcher\\Launcher.exe");
-                Application.Exit();
-            }
-            else
-            {
-                DialogResult result = MessageBox.Show("The game is not patched\nLaunch the game anyway?", "Warning!", MessageBoxButtons.YesNo);
-
-                if (result == DialogResult.Yes)
+                if (IsPatched())
                 {
+                    //Process.Start("steam://rungameid/1361210"); // in case if needed to launch through steam
                     Process.Start($"{gamePath}\\launcher\\Launcher.exe");
                     Application.Exit();
                 }
+                else
+                {
+                    DialogResult result = MessageBox.Show("The game is not patched\nLaunch the game anyway?", "Warning!", MessageBoxButtons.YesNo);
+
+                    if (result == DialogResult.Yes)
+                    {
+                        Process.Start($"{gamePath}\\launcher\\Launcher.exe");
+                        Application.Exit();
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Game folder not selected!", "Error!");
             }
         }
 
         public bool IsPatched()
         {
-            bool result = File.ReadAllText($"{gamePath}\\bundle\\bundle_database.data").Contains("patch_999");
-
-            return result;
+            if (gamePath.Contains("Warhammer 40,000 DARKTIDE"))
+            {
+                bool result = File.ReadAllText($"{gamePath}\\bundle\\bundle_database.data").Contains("patch_999");
+                return result;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         private void LinkLableUpdate_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
