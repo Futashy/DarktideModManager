@@ -54,6 +54,7 @@
             this.PanelAbout = new System.Windows.Forms.Panel();
             this.TextBoxAbout = new System.Windows.Forms.TextBox();
             this.LabelWindow = new System.Windows.Forms.Label();
+            this.LinkLabelGithub = new System.Windows.Forms.LinkLabel();
             this.panel1.SuspendLayout();
             this.PanelMain.SuspendLayout();
             this.PanelSettings.SuspendLayout();
@@ -101,7 +102,7 @@
             this.AuthorLink.AutoSize = true;
             this.AuthorLink.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
             this.AuthorLink.LinkColor = System.Drawing.Color.Gold;
-            this.AuthorLink.Location = new System.Drawing.Point(434, 411);
+            this.AuthorLink.Location = new System.Drawing.Point(440, 392);
             this.AuthorLink.Name = "AuthorLink";
             this.AuthorLink.Size = new System.Drawing.Size(38, 13);
             this.AuthorLink.TabIndex = 5;
@@ -142,7 +143,7 @@
             this.ModPageLink.AutoSize = true;
             this.ModPageLink.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
             this.ModPageLink.LinkColor = System.Drawing.Color.Gold;
-            this.ModPageLink.Location = new System.Drawing.Point(418, 435);
+            this.ModPageLink.Location = new System.Drawing.Point(422, 435);
             this.ModPageLink.Name = "ModPageLink";
             this.ModPageLink.Size = new System.Drawing.Size(56, 13);
             this.ModPageLink.TabIndex = 5;
@@ -354,6 +355,7 @@
             this.PanelAbout.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
             this.PanelAbout.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.PanelAbout.Controls.Add(this.TextBoxAbout);
+            this.PanelAbout.Controls.Add(this.LinkLabelGithub);
             this.PanelAbout.Controls.Add(this.AuthorLink);
             this.PanelAbout.Controls.Add(this.ModPageLink);
             this.PanelAbout.Location = new System.Drawing.Point(100, 31);
@@ -388,6 +390,20 @@
             this.LabelWindow.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseDown);
             this.LabelWindow.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseUp);
             // 
+            // LinkLabelGithub
+            // 
+            this.LinkLabelGithub.AutoSize = true;
+            this.LinkLabelGithub.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
+            this.LinkLabelGithub.LinkColor = System.Drawing.Color.Gold;
+            this.LinkLabelGithub.Location = new System.Drawing.Point(435, 415);
+            this.LinkLabelGithub.Name = "LinkLabelGithub";
+            this.LinkLabelGithub.Size = new System.Drawing.Size(43, 13);
+            this.LinkLabelGithub.TabIndex = 5;
+            this.LinkLabelGithub.TabStop = true;
+            this.LinkLabelGithub.Text = "Git-Hub";
+            this.LinkLabelGithub.VisitedLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.LinkLabelGithub.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkLabelGithub_LinkClicked);
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -397,9 +413,9 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.LabelWindow);
             this.Controls.Add(this.ButtonExit);
-            this.Controls.Add(this.PanelMain);
             this.Controls.Add(this.PanelAbout);
             this.Controls.Add(this.PanelSettings);
+            this.Controls.Add(this.PanelMain);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "MainWindow";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -449,6 +465,7 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.Button ButtonSort;
+        private System.Windows.Forms.LinkLabel LinkLabelGithub;
     }
 }
 

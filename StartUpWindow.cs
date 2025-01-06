@@ -67,15 +67,16 @@ namespace DarktideModManager
         private void UpdateManager()
         {
             XmlDocument xmlDoc = new XmlDocument();
-            string xml = new WebClient().DownloadString(@"https://raw.githubusercontent.com/Futashy/DarktideModManager/refs/heads/master/Version.xml");
+            Uri address = new Uri(@"https://raw.githubusercontent.com/Futashy/DarktideModManager/refs/heads/master/Version.xml");
+            string xml = new WebClient().DownloadString(address);
             xmlDoc.LoadXml(xml);
             var currVersion = Settings.Default.Version;
             var newVersion = xmlDoc.InnerText;
 
             LabelVersion.Text = currVersion;
 
-            int currVersionInt = Int32.Parse(currVersion.Replace(".", ""));
-            int newVersionInt = Int32.Parse(newVersion.Replace(".", ""));
+            int currVersionInt = int.Parse(currVersion.Replace(".", ""));
+            int newVersionInt = int.Parse(newVersion.Replace(".", ""));
 
             if (currVersionInt == newVersionInt)
             {

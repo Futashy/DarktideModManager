@@ -234,5 +234,10 @@ namespace DarktideModManager
                 ModListBox.Controls.Add(CreateButton(ModListBox.Controls.Count + 1, disabledMods[i], false));
             }
         }
+
+        private void LinkLabelGithub_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Process.Start(@"https://github.com/Futashy/DarktideModManager");
+        }
     }
 }
