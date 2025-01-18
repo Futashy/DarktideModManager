@@ -16,10 +16,11 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
-    - name: Setup dotnet
-      uses: actions/setup-dotnet@v4
+    - name: Setup .NET Core SDK
+      uses: actions/setup-dotnet@v4.2.0
       with:
-        dotnet-version: '6.0.x'
+        dotnet-version: '7.3.x'
+    - run: dotnet build <my project>
     - name: Install dependencies
       run: dotnet restore
     - name: Build
