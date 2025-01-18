@@ -1,3 +1,5 @@
+[![MSBuild](https://github.com/Futashy/DarktideModManager/actions/workflows/msbuild.yml/badge.svg?branch=master)](https://github.com/Futashy/DarktideModManager/actions/workflows/msbuild.yml)  
+
 Darktide Mod Manager
 
 Features:
