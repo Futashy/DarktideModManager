@@ -117,10 +117,101 @@ namespace DarktideModManager
                 AutoSize = true,
                 TabStop = false
             };
-            ModNameButton.Click += ModNameButton_Click;
+            //ModNameButton.Click += ModNameButton_Click;
+            ModNameButton.AllowDrop = true;
+            ModNameButton.MouseDown += ModNameButton_MouseDown;
+            ModNameButton.MouseUp += ModNameButton_MouseUp;
+            ModNameButton.DragEnter += ModNameButton_DragEnter;
+            ModNameButton.DragDrop += ModNameButton_DragDrop;
+            ModNameButton.MouseMove += ModNameButton_MouseMove;
+
             ModPanel.Controls.Add(ModNameButton);
 
             return ModPanel;
+        }
+
+        private void ToggleMod(object sender)
+        {
+            AuthorLink.Focus();
+            var tabIndex = (sender as Button).Parent.TabIndex;
+            if (modList[tabIndex].IsActive)
+            {
+                modList[tabIndex].IsActive = false;
+                (sender as Button).BackColor = Color.Silver;
+            }
+            else
+            {
+                modList[tabIndex].IsActive = true;
+                (sender as Button).BackColor = Color.MediumTurquoise;
+            }
+        }
+
+        bool isMouseDown = false;
+
+        private void ModNameButton_MouseUp(object sender, MouseEventArgs e)
+        {
+            isMouseDown = false;
+            ToggleMod(sender);
+        }
+
+        private void ModNameButton_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (isMouseDown == true)
+            {
+                (sender as Button).DoDragDrop(sender as Button, DragDropEffects.Copy | DragDropEffects.Move);
+            }
+        }
+
+        private void ModNameButton_DragDrop(object sender, DragEventArgs e)
+        {
+            Button obj = e.Data.GetData(e.Data.GetFormats()[0]) as Button;
+            string button = obj.Text;
+
+            if (obj.Text == (sender as Button).Text)
+            {
+                ToggleMod(sender);
+            }
+            else
+            {
+                var firstColor = obj.BackColor;
+                var secondColor = (sender as Button).BackColor;
+
+
+                for (int i = 0; i < ModListBox.Controls.Count; i++)
+                {
+                    if (ModListBox.Controls[i].Controls[1].Text == button)
+                    {
+                        ModListBox.Controls[i].Controls[1].Text = (sender as Button).Text;
+                        ModListBox.Controls[i].Controls[1].BackColor = secondColor;
+                        (sender as Button).Text = button;
+                        (sender as Button).BackColor = firstColor;
+                        break;
+                    }
+                }
+            }
+
+            isMouseDown = false;
+        }
+
+        private void ModNameButton_DragEnter(object sender, DragEventArgs e)
+        {
+            var obj = e.Data.GetData(e.Data.GetFormats()[0]);
+
+            if (obj is Button)
+            {
+                e.Effect = DragDropEffects.Copy;
+            }
+            else
+            {
+                e.Effect = DragDropEffects.None;
+            }
+        }
+
+        private void ModNameButton_MouseDown(object sender, MouseEventArgs e)
+        {
+            //(sender as Button).DoDragDrop((sender as Button).Text, DragDropEffects.Copy | DragDropEffects.Move);
+
+            isMouseDown = true;
         }
 
         private static Color GetColor(bool isActive)

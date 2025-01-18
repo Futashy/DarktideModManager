@@ -53,8 +53,8 @@
             this.ButtonOpenFolder = new System.Windows.Forms.Button();
             this.PanelAbout = new System.Windows.Forms.Panel();
             this.TextBoxAbout = new System.Windows.Forms.TextBox();
-            this.LabelWindow = new System.Windows.Forms.Label();
             this.LinkLabelGithub = new System.Windows.Forms.LinkLabel();
+            this.LabelWindow = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.PanelMain.SuspendLayout();
             this.PanelSettings.SuspendLayout();
@@ -65,6 +65,7 @@
             // 
             // ModListBox
             // 
+            this.ModListBox.AllowDrop = true;
             this.ModListBox.AutoScroll = true;
             this.ModListBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(120)))), ((int)(((byte)(120)))));
             this.ModListBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -130,7 +131,8 @@
             // 
             this.PatchButton.BackColor = System.Drawing.Color.Gray;
             this.PatchButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.PatchButton.Location = new System.Drawing.Point(9, 411);
+            this.PatchButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PatchButton.Location = new System.Drawing.Point(350, 418);
             this.PatchButton.Name = "PatchButton";
             this.PatchButton.Size = new System.Drawing.Size(142, 42);
             this.PatchButton.TabIndex = 1;
@@ -200,6 +202,7 @@
             this.ButtonMainTab.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
             this.ButtonMainTab.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ButtonMainTab.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.ButtonMainTab.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ButtonMainTab.Location = new System.Drawing.Point(1, 1);
             this.ButtonMainTab.Name = "ButtonMainTab";
             this.ButtonMainTab.Size = new System.Drawing.Size(100, 98);
@@ -213,11 +216,12 @@
             this.ButtonSettingsTab.BackColor = System.Drawing.Color.Gray;
             this.ButtonSettingsTab.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ButtonSettingsTab.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.ButtonSettingsTab.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ButtonSettingsTab.Location = new System.Drawing.Point(1, 98);
             this.ButtonSettingsTab.Name = "ButtonSettingsTab";
             this.ButtonSettingsTab.Size = new System.Drawing.Size(100, 98);
             this.ButtonSettingsTab.TabIndex = 0;
-            this.ButtonSettingsTab.Text = "SETTINGS";
+            this.ButtonSettingsTab.Text = "OPTIONS";
             this.ButtonSettingsTab.UseVisualStyleBackColor = false;
             this.ButtonSettingsTab.Click += new System.EventHandler(this.ButtonSettingsTab_Click);
             // 
@@ -226,6 +230,7 @@
             this.ButtonAboutTab.BackColor = System.Drawing.Color.Gray;
             this.ButtonAboutTab.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ButtonAboutTab.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.ButtonAboutTab.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ButtonAboutTab.Location = new System.Drawing.Point(1, 195);
             this.ButtonAboutTab.Name = "ButtonAboutTab";
             this.ButtonAboutTab.Size = new System.Drawing.Size(100, 98);
@@ -239,6 +244,7 @@
             this.ButtonReturn.BackColor = System.Drawing.Color.Silver;
             this.ButtonReturn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ButtonReturn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.ButtonReturn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ButtonReturn.Location = new System.Drawing.Point(11, 426);
             this.ButtonReturn.Name = "ButtonReturn";
             this.ButtonReturn.Size = new System.Drawing.Size(76, 30);
@@ -308,7 +314,7 @@
             this.groupBox2.ForeColor = System.Drawing.Color.White;
             this.groupBox2.Location = new System.Drawing.Point(3, 88);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(489, 317);
+            this.groupBox2.Size = new System.Drawing.Size(489, 324);
             this.groupBox2.TabIndex = 8;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Launch Options";
@@ -376,20 +382,6 @@
             this.TextBoxAbout.Text = "WIP";
             this.TextBoxAbout.Visible = false;
             // 
-            // LabelWindow
-            // 
-            this.LabelWindow.AutoSize = true;
-            this.LabelWindow.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.LabelWindow.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LabelWindow.ForeColor = System.Drawing.Color.White;
-            this.LabelWindow.Location = new System.Drawing.Point(12, 9);
-            this.LabelWindow.Name = "LabelWindow";
-            this.LabelWindow.Size = new System.Drawing.Size(147, 14);
-            this.LabelWindow.TabIndex = 9;
-            this.LabelWindow.Text = "Darktide Mod Manager";
-            this.LabelWindow.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseDown);
-            this.LabelWindow.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseUp);
-            // 
             // LinkLabelGithub
             // 
             this.LinkLabelGithub.AutoSize = true;
@@ -404,6 +396,20 @@
             this.LinkLabelGithub.VisitedLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.LinkLabelGithub.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkLabelGithub_LinkClicked);
             // 
+            // LabelWindow
+            // 
+            this.LabelWindow.AutoSize = true;
+            this.LabelWindow.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.LabelWindow.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LabelWindow.ForeColor = System.Drawing.Color.White;
+            this.LabelWindow.Location = new System.Drawing.Point(12, 9);
+            this.LabelWindow.Name = "LabelWindow";
+            this.LabelWindow.Size = new System.Drawing.Size(147, 14);
+            this.LabelWindow.TabIndex = 9;
+            this.LabelWindow.Text = "Darktide Mod Manager";
+            this.LabelWindow.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseDown);
+            this.LabelWindow.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseUp);
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -413,9 +419,9 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.LabelWindow);
             this.Controls.Add(this.ButtonExit);
-            this.Controls.Add(this.PanelSettings);
             this.Controls.Add(this.PanelMain);
             this.Controls.Add(this.PanelAbout);
+            this.Controls.Add(this.PanelSettings);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "MainWindow";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
